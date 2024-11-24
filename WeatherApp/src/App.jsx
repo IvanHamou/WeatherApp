@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { WeatherProvider } from './contexts/WeatherContext'
 import WeatherSearch from './components/WeatherSearch'
-
 
 const AppContainer = styled.div`
   max-width: 800px;
@@ -12,9 +12,11 @@ const AppContainer = styled.div`
 
 function App() {
   return (
+    <WeatherProvider>
       <AppContainer>
         <WeatherSearch />
       </AppContainer>
+    </WeatherProvider>
   )
 }
 

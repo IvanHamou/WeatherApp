@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
+import WeatherContext from '../contexts/WeatherContext'
 
 const SearchContainer = styled.div`
   margin: 20px 0;
@@ -22,11 +23,14 @@ const Button = styled.button`
 
 export default function WeatherSearch() {
   const [city, setCity] = useState('')
+  const { fetchWeather, weather } = useContext(WeatherContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (city) {
-      alert(city)
+      fetchWeather(city)
+      console.log(weather);
+      
     }
   }
 
